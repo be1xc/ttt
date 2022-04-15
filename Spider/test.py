@@ -1,7 +1,7 @@
 from selenium import webdriver
 import datetime
 from selenium.webdriver.chrome.options import Options
-import os,pytz,requests,time
+import os,pytz,requests,time,lxml
 
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument('--headless')
@@ -60,7 +60,10 @@ except:
   print('catch a bug')
 else:
   print('没有异常')
-    
+
+html = driver.page_source
+items = html.xpath('//*[@id="main"]/section/section/section[2]/section/section[1]/section/div[1]/div[3]/div[4]/div[2]/table/tbody/tr[1]/td[1]')
+print(items)
 driver.quit()
 
 msg = '测试消息'
