@@ -3,6 +3,8 @@ import datetime
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 import os,pytz,requests,time,lxml,lxml.html
+import requests
+import json
 
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument('--headless')
@@ -72,9 +74,27 @@ items = html.xpath('//*[@id="main"]/section/section/section[2]/section/section[1
 print(items)
 driver.quit()
 
-msg = '测试消息'
-wxpushplus = 'http://www.pushplus.plus/send?token=a767222b76fa42bfa3ba8fc93673f6ed&title={}&content={}&template=markdown'
-requests.post(wxpushplus.format(msg , str(datetime.datetime.now(pytz.timezone('Asia/Shanghai'))) + ' 公司打卡状态: ' + msg))
+## screen shot
+driver.save_screenshot('./1.png') 
+
+## upload pic
+def upload(path):
+    headers = {'Authorization': 'QgL9qIAkqfrRjkezWs4RvM4NekDjIzcm'}
+    files = {'smfile': open(path, 'rb')}
+    url = 'https://sm.ms/api/v2/upload'
+    res = requests.post(url, files=files, headers=headers).json()
+    purl = res['data']['page']
+    url = '<img src="{}">'.format(purl)
+    return url
+
+upload('./1.png')
+
+
+## send  msg
+msg = '签到消息'
+pic = 'url'
+wxpushplus = 'http://www.pushplus.plus/send?token=a767222b76fa42bfa3ba8fc93673f6ed&title={}&content={}&template=html'
+requests.post(wxpushplus.format(msg , str(datetime.datetime.now(pytz.timezone('Asia/Shanghai'))) + ' 公司打卡状态: ' + url))
 print(str(datetime.datetime.now(pytz.timezone('Asia/Shanghai'))) + ' 公司打卡状态: ' + msg)
 
 
