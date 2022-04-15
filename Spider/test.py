@@ -45,8 +45,10 @@ driver.find_element_by_xpath('/html/body/section/form/div[4]/div/div/input').sen
 time.sleep(2)
 driver.find_element_by_xpath("/html/body/section/form/button").click()
 # driver.find_element_by_xpath('//*[@id="main"]/section/section/section[2]/div/div[1]/div/ul/section/section/article/p').click()
-driver.find_element_by_css_selector('#main > section > section > section.app-wrapper > div > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > section > section > article > p')
-
+try:
+  driver.find_element_by_css_selector('#main > section > section > section.app-wrapper > div > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > section > section > article > p')
+finally:
+  print('跳过了异常')
 driver.quit()
 
 msg = '测试消息'
