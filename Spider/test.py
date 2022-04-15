@@ -46,7 +46,7 @@ driver.find_element_by_xpath("/html/body/section/form/button").click()
 time.sleep(2)
 # driver.find_element_by_xpath('//*[@id="main"]/section/section/section[2]/div/div[1]/div/ul/section/section/article/p').click()
 try:
-  driver.find_element_by_link_text('打卡').click()
+#   driver.find_element_by_link_text('打卡').click()
 #   driver.find_element_by_css_selector('#main > section > section > section.app-wrapper > div > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > section > section > article > p')
 except:
    print('跳过了异常')
@@ -64,7 +64,8 @@ else:
 htmls = driver.page_source
 html = lxml.html.fromstring(htmls)
 print(html)
-items = html.xpath('//*[@id="main"]/section/section/section[2]/section/section[1]/section/div[1]/div[3]/div[4]/div[2]/table/tbody/tr[1]/td[1]')
+# items = html.xpath('//*[@id="main"]/section/section/section[2]/section/section[1]/section/div[1]/div[3]/div[4]/div[2]/table/tbody/tr[1]/td[1]')
+items = html.xpath('//*[@id="main"]/section/section/section[2]/section/section[1]/section/div[1]/div[3]/div[4]/div[2]/table/tbody')
 print(items)
 driver.quit()
 
