@@ -1,7 +1,7 @@
 from selenium import webdriver
 import datetime
 from selenium.webdriver.chrome.options import Options
-import os,pytz,requests
+import os,pytz,requests,time
 
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument('--headless')
@@ -38,10 +38,11 @@ os.environ["webdriver.chrome.driver"] = chromedriver
 driver = webdriver.Chrome(chrome_options=chrome_options,executable_path=chromedriver)
 
 driver.get('http://bpo.gcheck.com.cn:8088/#/attendance/myattendance')
+time.sleep(3)
 driver.find_element_by_xpath('/html/body/section/form/div[2]/div/div[1]/input').send_keys("P0169311")
 driver.find_element_by_xpath('/html/body/section/form/div[3]/div/div[1]/input').send_keys("123456")
 driver.find_element_by_xpath('/html/body/section/form/div[4]/div/div/input').send_keys("746")
-
+time.sleep(2)
 driver.find_element_by_xpath("/html/body/section/form/button").click()
 driver.find_element_by_xpath('//*[@id="main"]/section/section/section[2]/div/div[1]/div/ul/section/section/article/p').click()
 
