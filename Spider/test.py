@@ -80,16 +80,14 @@ driver.save_screenshot('./1.png')
 
 driver.quit()
 ## upload pic
-def upload(path):
-    headers = {'Authorization': 'QgL9qIAkqfrRjkezWs4RvM4NekDjIzcm'}
-    files = {'smfile': open(path, 'rb')}
-    url = 'https://sm.ms/api/v2/upload'
-    res = requests.post(url, files=files, headers=headers).json()
-    purl = res['data']['page']
-    url = '<img src="{}">'.format(purl)
-    return url
 
-upload('./1.png')
+headers = {'Authorization': 'QgL9qIAkqfrRjkezWs4RvM4NekDjIzcm'}
+files = {'smfile': open('./1.png', 'rb')}
+url = 'https://sm.ms/api/v2/upload'
+res = requests.post(url, files=files, headers=headers).json()
+purl = res['data']['page']
+url = '<img src="{}">'.format(purl)
+
 
 
 ## send  msg
