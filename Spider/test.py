@@ -75,7 +75,9 @@ else:
 
 
 ## screen shot
-driver.save_screenshot('./1.png') 
+# driver.save_screenshot('./1.png') 
+
+driver.get_screenshot_as_file("./1.png")
 
 
 driver.quit()
