@@ -85,7 +85,7 @@ headers = {'Authorization': 'QgL9qIAkqfrRjkezWs4RvM4NekDjIzcm'}
 files = {'smfile': open('./1.png', 'rb')}
 url = 'https://sm.ms/api/v2/upload'
 res = requests.post(url, files=files, headers=headers).json()
-purl = res['data']['page']
+purl = res['data']['url']
 url = '<img src="{}">'.format(purl)
 
 
