@@ -1,7 +1,7 @@
 from selenium import webdriver
 import datetime
 from selenium.webdriver.chrome.options import Options
-import os,pytz,requests,time,lxml
+import os,pytz,requests,time,lxml,lxml.html
 
 # chrome_options = webdriver.ChromeOptions()
 # chrome_options.add_argument('--headless')
