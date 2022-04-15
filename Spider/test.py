@@ -46,12 +46,11 @@ time.sleep(2)
 driver.find_element_by_xpath("/html/body/section/form/button").click()
 # driver.find_element_by_xpath('//*[@id="main"]/section/section/section[2]/div/div[1]/div/ul/section/section/article/p').click()
 try:
-  global m = driver.find_element_by_css_selector('#main > section > section > section.app-wrapper > div > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > section > section > article > p')
+  driver.find_element_by_css_selector('#main > section > section > section.app-wrapper > div > div.scrollbar-wrapper.el-scrollbar__wrap > div > ul > section > section > article > p')
 except:
    print('跳过了异常')
 else:
    print('没有异常')
-print(m)    
     
     
 driver.quit()
