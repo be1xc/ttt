@@ -62,6 +62,7 @@ else:
   print('没有异常')
 
 htmls = driver.page_source
+WebDriverWait(browser, 10)
 print(htmls)
 html = lxml.html.fromstring(htmls)
 print(html)
