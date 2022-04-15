@@ -61,7 +61,8 @@ except:
 else:
   print('没有异常')
 
-html = driver.page_source
+htmls = driver.page_source
+html = lxml.html.fromstring(htmls)
 items = html.xpath('//*[@id="main"]/section/section/section[2]/section/section[1]/section/div[1]/div[3]/div[4]/div[2]/table/tbody/tr[1]/td[1]')
 print(items)
 driver.quit()
