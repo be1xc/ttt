@@ -52,7 +52,7 @@ except:
 else:
    print('没有异常')
    
-try：
+try:
   text = driver.find_element_by_xpath('//*[@id="main"]/section/section/section[2]/section/section[1]/section/div[1]/div[3]/div[3]/table/tbody/tr[1]').text 
 except:
   print(text)
