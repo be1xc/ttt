@@ -94,7 +94,7 @@ upload('./1.png')
 
 ## send  msg
 msg = '签到消息'
-pic = 'url'
+pic = url
 wxpushplus = 'http://www.pushplus.plus/send?token=a767222b76fa42bfa3ba8fc93673f6ed&title={}&content={}&template=html'
 requests.post(wxpushplus.format(msg , str(datetime.datetime.now(pytz.timezone('Asia/Shanghai'))) + ' 公司打卡状态: ' + url))
 print(str(datetime.datetime.now(pytz.timezone('Asia/Shanghai'))) + ' 公司打卡状态: ' + msg)
